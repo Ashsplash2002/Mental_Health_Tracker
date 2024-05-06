@@ -19,16 +19,20 @@ function Slider({ disorderId }) {
   };
 
   return (
-    <div>
-      <input
-        type="range"
-        min="1"
-        max="10"
-        value={intensity}
-        onChange={(e) => setIntensity(parseInt(e.target.value))}
-      />
-      <button onClick={handleIntensityChange} style={{ marginLeft: "30px" }}>Save Intensity</button>
-      {successMessage && <p style={{ color: "green" }}>{successMessage}</p>}
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
+      <div style={{ display: "flex", alignItems: "center", width: "300px" }}>
+        <input
+          type="range"
+          min="1"
+          max="10"
+          value={intensity}
+          onChange={(e) => setIntensity(parseInt(e.target.value))}
+          style={{ width: "100%" }}
+        />
+        <div style={{ marginLeft: "10px", fontSize: "16px" }}>{intensity}</div> {/* Adjusted font size to 16px */}
+      </div>
+      <button onClick={handleIntensityChange} style={{ marginTop: "10px", marginBottom:"10px" }}>Save Intensity</button>
+      {successMessage && <p style={{ color: "green", marginTop: "10px" ,marginBottom:"50px" }}>{successMessage} </p>}
     </div>
   );
 }
