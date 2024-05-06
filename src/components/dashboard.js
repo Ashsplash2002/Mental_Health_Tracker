@@ -38,7 +38,7 @@ function Dashboard() {
     const totalIntensity = relevantLogs.reduce((sum, log) => sum + log.intensity, 0);
     const averageIntensity = relevantLogs.length > 0 ? totalIntensity / relevantLogs.length : 0;
 
-    return Math.round(averageIntensity); 
+    return Math.round(averageIntensity);
   };
 
   return (
@@ -54,6 +54,8 @@ function Dashboard() {
                   <p>Date Diagnosed: {new Date(disorder.dateDiagnosed).toLocaleDateString()}</p>
                   <p>Week's Average Intensity: {calculateWeeksAverageIntensity(disorder.intensityLogs)}</p>
                   <p>Month's Average Intensity: {calculateMonthsAverageIntensity(disorder.intensityLogs)}</p>
+                  {calculateMonthsAverageIntensity(disorder.intensityLogs) >= 8 && 
+                    <p style={{ color: 'red' }}>Recommended to see Psychologist</p>}
                 </div>
               ))}
             </div>
