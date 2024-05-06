@@ -20,10 +20,10 @@ function DeleteDisorder() {
   };
 
   return (
-    <div className="container mt-5" style={{ marginTop: "200px" }}>
+    <div className="container mt-5" >
       <div className="row justify-content-center">
         <div className="col-md-6">
-          <div className="card" style={{ marginTop: "150px" }}>
+          <div className="card" style={{ border: "1px solid light grey", marginTop: "50px" }}>
             <div className="card-body" >
               <h3 className="card-title mb-4">Delete Disorder</h3>
               <p>Are you sure you want to delete this disorder?</p>

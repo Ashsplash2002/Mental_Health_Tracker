@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useUser } from "../UserContext"; // Import useUser hook
+import { useUser } from "../UserContext";
 
 function AddDisorder() {
   const [name, setName] = useState("");
   const [dateDiagnosed, setDateDiagnosed] = useState("");
-  const [successMessage, setSuccessMessage] = useState(""); // State for success message
+  const [successMessage, setSuccessMessage] = useState(""); 
   const { userEmail } = useUser(); // Access userEmail from the context
 
   const handleSubmit = async (e) => {
@@ -17,9 +17,7 @@ function AddDisorder() {
         dateDiagnosed,
       });
       console.log(response.data);
-      // Set success message
       setSuccessMessage("Disorder added successfully!");
-      // Reset form fields after successful submission
       setName("");
       setDateDiagnosed("");
     } catch (error) {
@@ -28,14 +26,13 @@ function AddDisorder() {
   };
 
   return (
-    <div className="d-flex justify-content-center align-items-center vh-100">
+    <div className="d-flex justify-content-center vh-100">
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-md-6">
-            <div className="card">
+            <div className="card" style={{ border: "1px solid light grey", marginTop: "100px" }}>
               <div className="card-body">
                 <h3 className="card-title mb-4">Add New Disorder</h3>
-                {/* Display success message if it exists */}
                 {successMessage && <p className="mt-3 text-success">{successMessage}</p>}
                 <form onSubmit={handleSubmit}>
                   <div className="mb-3">

@@ -44,7 +44,7 @@ function UpdateDisorder() {
     <div className="container mt-5" style={{ marginTop: "150px" }}>
       <div className="row justify-content-center">
         <div className="col-md-6">
-          <div className="card" style={{ marginTop: "150px" }}>
+          <div className="card" style={{ border: "1px solid light grey", marginTop: "50px" }}>
             <div className="card-body">
               <h2 className="card-title mb-4">Update Disorder</h2>
               <form onSubmit={handleSubmit}>

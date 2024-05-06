@@ -19,7 +19,6 @@ function Dashboard() {
     fetchDisorders();
   }, [userEmail]);
 
-  // Function to calculate average intensity for the past week
   const calculateWeeksAverageIntensity = (intensityLogs) => {
     const oneWeekAgo = new Date();
     oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
@@ -28,10 +27,9 @@ function Dashboard() {
     const totalIntensity = relevantLogs.reduce((sum, log) => sum + log.intensity, 0);
     const averageIntensity = relevantLogs.length > 0 ? totalIntensity / relevantLogs.length : 0;
 
-    return Math.round(averageIntensity); // Round the average intensity to an integer
+    return Math.round(averageIntensity);
   };
 
-  // Function to calculate average intensity for the past month
   const calculateMonthsAverageIntensity = (intensityLogs) => {
     const oneMonthAgo = new Date();
     oneMonthAgo.setMonth(oneMonthAgo.getMonth() - 1);
@@ -40,14 +38,14 @@ function Dashboard() {
     const totalIntensity = relevantLogs.reduce((sum, log) => sum + log.intensity, 0);
     const averageIntensity = relevantLogs.length > 0 ? totalIntensity / relevantLogs.length : 0;
 
-    return Math.round(averageIntensity); // Round the average intensity to an integer
+    return Math.round(averageIntensity); 
   };
 
   return (
     <div className="container-fluid py-5">
-      <div className="row justify-content-center align-items-center" style={{ minHeight: "calc(100vh - 56px)" }}>
+      <div className="row justify-content-center" style={{ minHeight: "calc(100vh - 56px)" }}>
         <div className="col-md-8">
-          <div className="card" style={{ marginTop: "50px", marginBottom: "50px" }}>
+          <div className="card" style={{ border: "1px solid light grey", marginTop: "50px" }}>
             <div className="card-body">
               <h2 className="card-title mb-4">Dashboard</h2>
               {disorders.map(disorder => (

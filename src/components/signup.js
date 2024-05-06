@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import axios from 'axios';
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Register() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
-  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -28,7 +27,7 @@ function Register() {
     <div className="container mt-5">
       <div className="row justify-content-center">
         <div className="col-md-6">
-          <div className="card">
+          <div className="card" style={{ marginTop: "50px", marginBottom: "50px" }}>
             <div className="card-body">
               <h3 className="card-title mb-4">Sign Up</h3>
               <form onSubmit={handleSubmit}>

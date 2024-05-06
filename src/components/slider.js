@@ -3,7 +3,7 @@ import axios from "axios";
 
 function Slider({ disorderId }) {
   const [intensity, setIntensity] = useState(5); // Default intensity value
-  const [successMessage, setSuccessMessage] = useState(""); // State for success message
+  const [successMessage, setSuccessMessage] = useState("");
 
   const handleIntensityChange = async () => {
     try {
@@ -27,7 +27,6 @@ function Slider({ disorderId }) {
         value={intensity}
         onChange={(e) => setIntensity(parseInt(e.target.value))}
       />
-      {/* Add marginLeft of 60px to move the button to the right */}
       <button onClick={handleIntensityChange} style={{ marginLeft: "30px" }}>Save Intensity</button>
       {successMessage && <p style={{ color: "green" }}>{successMessage}</p>}
     </div>

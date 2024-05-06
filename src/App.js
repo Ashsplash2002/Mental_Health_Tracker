@@ -8,10 +8,8 @@ import Login from './components/login';
 import SignUp from './components/signup';
 import ForgotPassword from './components/forgot_password';
 import CreateDisorder from './components/add_disorder';
-import ChangeDisorder from './components/change_disorder';
 import Dashboard from './components/dashboard';
 import Intensity from './components/intensity';
-import DisorderList from './components/disorder_list';
 import UpdateDisorder from './components/update_disorder'; // Import UpdateDisorder component
 import DeleteDisorder from './components/delete_disorder'; // Import DeleteDisorder component
 
@@ -36,12 +34,10 @@ function App() {
           <Routes>
             <Route path="/" element={<Login />} />
             <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/edit/:id" element={<ChangeDisorder />} />
             <Route path="/create" element={<CreateDisorder />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="/intensity" element={<Intensity />} />
-            <Route path="/disorder-list" element={<DisorderList />} />
             <Route path="/update/:id" element={<UpdateDisorder />} /> {/* Route for updating disorder */}
             <Route path="/delete/:id" element={<DeleteDisorder />} /> {/* Route for deleting disorder */}
           </Routes>

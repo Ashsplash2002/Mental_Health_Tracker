@@ -40,56 +40,6 @@ router.post('/add-intensity-log', async (req, res) => {
   }
 });
 
-router.put('/update-intensity-log/:disorderId', async (req, res) => {
-  const { disorderId } = req.params;
-  const { date, intensity } = req.body;
-
-  try {
-    const disorder = await Disorder.findById(disorderId);
-
-    if (!disorder) {
-      return res.status(404).json({ error: 'Disorder not found' });
-    }
-
-    const logIndex = disorder.intensityLogs.findIndex(log => log.date.toDateString() === new Date(date).toDateString());
-
-    if (logIndex === -1) {
-      return res.status(404).json({ error: 'Intensity log not found' });
-    }
-
-    disorder.intensityLogs[logIndex].intensity = intensity;
-
-    await disorder.save();
-
-    res.status(200).json({ message: 'Intensity log updated successfully' });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'An error occurred' });
-  }
-});
-
-
-router.delete('/delete-intensity-log', async (req, res) => {
-  const { disorderId, date } = req.body;
-
-  try {
-    const disorder = await Disorder.findById(disorderId);
-
-    if (!disorder) {
-      return res.status(404).json({ error: 'Disorder not found' });
-    }
-
-    disorder.intensityLogs = disorder.intensityLogs.filter(log => log.date.toDateString() !== new Date(date).toDateString());
-
-    await disorder.save();
-
-    res.status(200).json({ message: 'Intensity log deleted successfully' });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'An error occurred' });
-  }
-});
-
 // Route to get disorders by email
 router.get('/get-disorders', async (req, res) => {
   const { email } = req.query;
