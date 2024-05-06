@@ -40,9 +40,9 @@ router.post('/add-intensity-log', async (req, res) => {
   }
 });
 
-
-router.put('/update-intensity-log', async (req, res) => {
-  const { disorderId, date, intensity } = req.body;
+router.put('/update-intensity-log/:disorderId', async (req, res) => {
+  const { disorderId } = req.params;
+  const { date, intensity } = req.body;
 
   try {
     const disorder = await Disorder.findById(disorderId);
@@ -67,6 +67,7 @@ router.put('/update-intensity-log', async (req, res) => {
     res.status(500).json({ error: 'An error occurred' });
   }
 });
+
 
 router.delete('/delete-intensity-log', async (req, res) => {
   const { disorderId, date } = req.body;

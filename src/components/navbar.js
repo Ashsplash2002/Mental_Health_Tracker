@@ -8,7 +8,7 @@ function CustomNavbar() {
       <div className="container">
         <Navbar.Brand as={Link} to="/" className="text-decoration-none">
           <span style={{ color: '#5e9693' }}>Psych</span>
-          <span style={{ color: '#fff' }}>BFF</span>
+          <span style={{ color: '#a17249' }}>BFF</span> {/* Light brown color */}
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarSupportedContent" />
         <Navbar.Collapse id="navbarSupportedContent">

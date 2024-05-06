@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Slider from "./slider"; // Assuming you have a Slider component
-import { useUser } from "../UserContext"; // Import useUser hook
+import Slider from "./slider";
+import { useUser } from "../UserContext";
+import { Link } from 'react-router-dom'; // Import Link from React Router
 
 function Intensity() {
   const [disorders, setDisorders] = useState([]);
-  const { userEmail } = useUser(); // Access userEmail from the context
+  const { userEmail } = useUser();
 
   useEffect(() => {
     const fetchDisorders = async () => {
@@ -28,11 +29,12 @@ function Intensity() {
             <h3 className="card-title mb-4">Add your daily log</h3>
             {disorders.map((disorder) => (
               <div key={disorder._id}>
-                <div style={{ display: "flex", alignItems: "center", marginTop: "10px" }}>
-                  <h3 style={{ fontSize: "1.25rem", marginRight: "10px" }}>{disorder.name}</h3>
+                <div style={{ marginBottom: "10px" }}>
+                  <h3 style={{ fontSize: "1.25rem", marginBottom: "5px" }}>{disorder.name}</h3>
                   <div>
-                    <a href={`/update/${disorder._id}`} style={{ marginRight: "10px" }}>Update</a>
-                    <a href={`/delete/${disorder._id}`}>Delete</a>
+                    {/* Use Link components for navigation */}
+                    <Link to={`/update/${disorder._id}`} style={{ marginRight: "10px" }}>Update</Link>
+                    <Link to={`/delete/${disorder._id}`}>Delete</Link>
                   </div>
                 </div>
                 <p>Date Diagnosed: {new Date(disorder.dateDiagnosed).toLocaleDateString()}</p>

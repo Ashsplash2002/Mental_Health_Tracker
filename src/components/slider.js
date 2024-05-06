@@ -27,7 +27,8 @@ function Slider({ disorderId }) {
         value={intensity}
         onChange={(e) => setIntensity(parseInt(e.target.value))}
       />
-      <button onClick={handleIntensityChange}>Save Intensity</button>
+      {/* Add marginLeft of 60px to move the button to the right */}
+      <button onClick={handleIntensityChange} style={{ marginLeft: "30px" }}>Save Intensity</button>
       {successMessage && <p style={{ color: "green" }}>{successMessage}</p>}
     </div>
   );
