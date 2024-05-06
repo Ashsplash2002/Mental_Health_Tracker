@@ -1,22 +1,30 @@
 const mongoose = require('mongoose');
 
 const disorderSchema = new mongoose.Schema({
-  user: {
-    type: String, // Assuming the user's email is stored as a string
-    required: true
+  email: {
+    type: String,
+    required: true,
   },
   name: {
     type: String,
     required: true,
   },
-  severity: {
-    type: Number,
-    default: 0,
-  },
-  diagnosisDate: {
+  dateDiagnosed: {
     type: Date,
     required: true,
   },
+  intensityLogs: [{
+    date: {
+      type: Date,
+      required: true,
+    },
+    intensity: {
+      type: Number,
+      default: 0,
+    },
+  }],
 });
 
-module.exports = mongoose.model('Disorder', disorderSchema);
+const Disorder = mongoose.model('Disorder', disorderSchema);
+
+module.exports = Disorder;
